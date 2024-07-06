@@ -1,16 +1,16 @@
 #include "raylib.h"
 
-#define SCREEN_WIDTH (800)
-#define SCREEN_HEIGHT (450)
+#define SCREEN_WIDTH (400)
+#define SCREEN_HEIGHT (544)
 
-#define WINDOW_TITLE "Window title"
+#define WINDOW_TITLE "Flappy Bird"
 
 int main(void)
 {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_TITLE);
     SetTargetFPS(60);
 
-    Texture2D texture = LoadTexture(ASSETS_PATH"test.png"); // Check README.md for how this works
+    Texture2D texture = LoadTexture(ASSETS_PATH"spritesheet.png"); 
 
     while (!WindowShouldClose())
     {

@@ -1,42 +1,48 @@
-# Simple and portable CMake template for raylib
+# Flappy Bird
 
-This is a basic project template for raylib using CMake and has been tested with Visual Studio, Visual Studio Code and CLion.
+Recreate flappy bird using `raylib` in C, cuz your girlfriend is out of town and you have nothing better to do.
 
-The master branch of the raylib source code is downloaded using CMake FetchContent from github and compiled from source as it is much easier than including prebuilt binaries for every platform and configuration.
+## Steps
 
-Building from the cmake file will build both raylib and `src/main.c` which includes a basic example of a raylib program.
+- [ ] splice the sheet on game load
+- [ ] render bird
+- [ ] render background
+- [ ] tap to jump with gravity
+- [ ] MVP 1
+- [ ] add ground
+- [ ] add pipes and move pipes
+- [ ] collision is restart
+- [ ] MVP 2
+- [ ] track score
+- [ ] display score
+- [ ] death shows menu
+- [ ] MVP 3
+- [ ] title screen
+- [ ] pause menu with quit
+- [ ] MVP 4
+- [ ] add bird animation
+- [ ] score animation
+- [ ] MVP 5
+- [ ] final touches
 
-## Asset handling
+## Main ECS
 
-The example in `src/main.c` uses an example image located in the `assets` folder.
-To load it we use `ASSETS_PATH`, which is a string macro with the *absolute* path "assets" directory.
-This macro is defined in the `CMakeLists.txt` file on line `23`.
- 
-If you plan on releasing or sharing your game consider manually setting the value of the `ASSETS_PATH` macro.
+try this whole thing using ecs architecture:
 
-In C you can concatenate string literals by putting them next to each other, 
-eg: `"A" "B"` is `"AB"`. So ASSETS_PATH `"test.png"` becomes `"/path/to/your/assets/test.png"`
+- entities
+    - pipe
+    - ground
+    - player
+- components
+    - transform
+    - collision box/sphere
+    - sprite renderer
+    - player controller
+    - pipe controller
+- systems
+    - renderer
+    - collision detector
+    - movement
 
-If you wanna share your game with others you should set ASSETS_PATH to be a *relative* path like "./assets/". You can do this in the CMakeLists.txt file. 
 
-## Using C++
-
-Using c++ is quite simple, just change these lines in the `CMakeLists.txt`
-from
-```
-project(my_raylib_game C)
-
-set(CMAKE_C_STANDARD 99)
-
-file(GLOB_RECURSE PROJECT_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_LIST_DIR}/sources/*.c")
-```
-to
-```
-project(my_raylib_game CXX)
-
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-file(GLOB_RECURSE PROJECT_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_LIST_DIR}/sources/*.cpp")
-```
-After this just reload cmake and it should build fine.
+There will be more entities/systems/components for the UI stuff, but I need to pick up my little sister now.
