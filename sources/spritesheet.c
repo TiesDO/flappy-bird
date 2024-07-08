@@ -22,8 +22,8 @@ spritesheet_section_t init_section(spritesheet_t *sheet,
 
 void draw_sprite_from_sheet(spritesheet_section_t *sprite, Vector2 dest) {
   DrawTexturePro(*(sprite->source_texture), sprite->source_position,
-                 (Rectangle){.x = dest.x,
-                             .y = dest.y,
+                 (Rectangle){.x = dest.x * SCALE,
+                             .y = dest.y * SCALE,
                              .width = sprite->source_position.width * SCALE,
                              .height = sprite->source_position.height * SCALE},
                  (Vector2){0, 0}, 0, WHITE);
