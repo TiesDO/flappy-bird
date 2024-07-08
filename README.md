@@ -4,9 +4,9 @@ Recreate flappy bird using `raylib` in C, cuz your girlfriend is out of town and
 
 ## Steps
 
-- [ ] splice the sheet on game load
-- [ ] render bird
-- [ ] render background
+- [x] splice the sheet on game load
+- [x] render bird
+- [x] render background
 - [ ] tap to jump with gravity
 - [ ] MVP 1
 - [ ] add ground
